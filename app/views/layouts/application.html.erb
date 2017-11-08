@@ -9,6 +9,10 @@
   </head>
 
   <body>
-    <%= yield %>
+      <div class="container-fluid">
+          <%= render "common/navbar"%>
+          <%= yield %>
+      </div>
+    <%= render "common/footer"%><!-- render 用来渲染局部视图的 -->
   </body>
 </html>
