@@ -7,8 +7,11 @@ class GroupsController < ApplicationController
     end
     def create
         @group = Group.new(groups_params)
-        @group.save
+        if @group.save
             redirect_to groups_path
+        else
+            render :new;
+        end
     end
     def show
         @group = Group.find(params[:id])
@@ -29,6 +32,4 @@ class GroupsController < ApplicationController
     def groups_params
         params.require(:group).permit(:title,:description)
     end
-
-
 end
